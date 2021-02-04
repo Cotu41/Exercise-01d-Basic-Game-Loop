@@ -16,18 +16,21 @@ def find_passage(game_desc, pid):
 
 
 
-# ------------------------------------------------------
-
 def render(current):
+    print(current['text'])
     pass
 
 def update(current, game_desc, choice):
+
+    for l in current["links"]:
+        if l["link"] == choice:
+            return find_passage(game_desc, l["pid"])
     return current
 
 def get_input(current):
-    return current
+     return input()
 
-# ------------------------------------------------------
+
 
 def main():
     game_desc = load("adventure.json")
